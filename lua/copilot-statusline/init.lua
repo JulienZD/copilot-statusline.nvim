@@ -10,6 +10,7 @@ local icons = {
   disabled = '',
   warning = '',
   unknown = '',
+  loading = '',
 }
 
 -- Whether copilot is attached to a buffer
@@ -57,7 +58,7 @@ function M:get_copilot_status()
   end
 
   if copilot.is_loading() then
-    return '...'
+    return icons.loading
   elseif copilot.is_error() then
     return icons.warning
   elseif not copilot.is_enabled() then
