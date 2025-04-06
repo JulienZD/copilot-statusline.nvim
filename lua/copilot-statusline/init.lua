@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if client and client.name == 'copilot' then
       attached = true
 
-      require('copilot.api').register_status_notification_handler(function()
+      require('copilot.status').register_status_notification_handler(function()
         local new_state = M:get_copilot_status()
         -- only update statusline if the state has changed
         if new_state ~= state then
